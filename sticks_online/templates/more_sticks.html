@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% block title %}21 палочка - Онлайн игра - Игровая страница{% endblock %}
+
+{% block header %}
+    <div class='score'>
+        <p>Побед: {{win}}</p>
+        <p>Поражений: {{lose}}</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class='content'>
+        <h3>Попробуй еще раз. Нельзя взять больше палочек, чем лежит на столе.</h3>
+        <table class='w3-table w3-striped w3-border w3-card-4'>
+            <tr>
+                <td><h4>Осталось палочек:</h4></td>
+                <td><h4>{{sticks_total}}</h4></td>
+            </tr>
+        </table>
+    </div>
+    <div class='content'>
+        <table>
+            <tr>
+                <td>
+                    <h3>Твой ход. Сколько палочек возьмёшь?</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="w3-bar">
+                        <a href="{% url 'taken' 1 %}" class='w3-btn w3-brown w3-hover-yellow'><b>1</b></a>
+                        <a href="{% url 'taken' 2 %}" class='w3-btn w3-brown w3-hover-yellow'><b>2</b></a>
+                        <a href="{% url 'taken' 3 %}" class='w3-btn w3-brown w3-hover-yellow'><b>3</b></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <a href="{% url 'main' %}" class='w3-btn w3-brown w3-hover-yellow'><b>Начать сначала</b></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block title %}21 палочка - Онлайн игра - Ты победил!{% endblock %}
+
+{% block content %}
+    <div class='content'>
+        <br>
+        <table class='w3-table w3-striped w3-border w3-card-4'>
+            <tr>
+                <td><h4>Было палочек:</h4></td>
+                <td><h4>{{sticks_total}}</h4></td>
+            </tr>
+            <tr>
+                {% if sticks == 1 %}
+                    <td><h4>Ты взял:</h4></td>
+                    <td><h4>{{taken}}</h4></td>
+                {% elif sticks == 0 %}
+                    <td><h4>Я взял:</h4></td>
+                    <td><h4>{{taken}}</h4></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td><h4>Осталось палочек:</h4></td>
+                <td><h4>{{sticks}}</h4></td>
+            </tr>
+        </table>
+        <h2>Ты победил!!</h2>
+        <br>
+        <a href="{% url 'start_game' %}" class='w3-btn w3-brown w3-hover-yellow'><b>Начать новую игру</b></a>
+    </div>
+{% endblock %}
